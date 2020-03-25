@@ -34,7 +34,7 @@ To install Fast-DENSER as a python library the following steps should be perform
 
 `python -m fast_denser.engine -d <dataset> -c <config> -r <run> -g <grammar>`
 
--d [mandatory] can assume one of the following values: mnist, fashion-mnist, svhn, cifar10, cifar100-fine, cifar100-coarse, tiny-imagenet
+-d [mandatory] can assume one of the following values: mnist, fashion-mnist, svhn, cifar10, cifar100-fine, cifar100-coarse, tiny-imagenet sissgeo
 
 -c [mandatory] is the path to a json configuration file. Check example/config.json for an example
 
