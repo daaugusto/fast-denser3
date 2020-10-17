@@ -25,7 +25,7 @@ def load_train_test( dataset_path, type ):
    # Lists all image names in dataset_path/type, which type being either `train` or `test`
    print( "Working dir = {} | dataset_path = {} | type = {}".format( os.getcwd(), dataset_path, type ) )
 
-   list_of_images = os.listdir( "%s/%s" % ( dataset_path, type ) )
+   list_of_images = [ s for s in os.listdir( "%s/%s" % ( dataset_path, type ) ) if s.endswith('.jpg') or s.endswith('.jpeg') ]
    n = len( list_of_images )
 
    x = np.ndarray(shape = (n,32,32,3), dtype = np.uint8)  # n -> actual number of images in the directory
