@@ -23,17 +23,21 @@ Loader of SISS-Geo images
 
 def load_train_test( dataset_path, type ):
    # Lists all image names in dataset_path/type, which type being either `train` or `test`
+   print( "Working dir = {} | dataset_path = {} | type = {}".format( os.getcwd(), dataset_path, type ) )
+
    list_of_images = os.listdir( "%s/%s" % ( dataset_path, type ) )
    n = len( list_of_images )
 
    x = np.ndarray(shape = (n,32,32,3), dtype = np.uint8)  # n -> actual number of images in the directory
    y = np.ndarray(shape = (n), dtype = np.uint8)  # n -> actual number of images in the directory
-   for each image_name in list_of_images:
+   i = 0
+   for  image_name in list_of_images:
       # Load each image (from image_name) in the dir as a 3D ndarray
-      x[i] = imageio.imread(image_name)
+      x[i] = imageio.imread( "%s/%s/%s" % ( dataset_path, type, image_name ) )
       # Extract the class index from image_name
       y[i] = int( image_name.split('-')[1] )
 
+      i = i + 1
    return x, y
 
 
